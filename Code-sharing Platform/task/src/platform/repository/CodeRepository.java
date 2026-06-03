@@ -5,6 +5,6 @@ import platform.model.Code;
 
 import java.util.List;
 
-public interface CodeRepository extends JpaRepository<Code, Long> {
-    List<Code> findTop10ByOrderByIdDesc();
+public interface CodeRepository extends JpaRepository<Code, String> {
+    List<Code> findTop10ByTimeLimitAndViewsLimitOrderByCreatedAtDesc(long timeLimit, int viewsLimit);
 }
