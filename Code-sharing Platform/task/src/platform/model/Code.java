@@ -1,21 +1,38 @@
 package platform.model;
 
-/** Stores one code snippet and the formatted timestamp when it was last saved. */
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Code {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonIgnore
+    private Long id;
+
+    @Column(columnDefinition = "TEXT")
     private String code;
+
     private String date;
 
     public Code() {
     }
 
-    /** Creates a snapshot binding the snippet text to its upload timestamp. */
     public Code(String code, String date) {
         this.code = code;
         this.date = date;
     }
 
-    /** Returns the raw code text shared by both the API and HTML endpoints. */
+    public Long getId() {
+        return id;
+    }
+
     public String getCode() {
         return code;
     }
@@ -24,7 +41,6 @@ public class Code {
         this.code = code;
     }
 
-    /** Returns the upload timestamp string included in both API and HTML responses. */
     public String getDate() {
         return date;
     }
