@@ -17,10 +17,10 @@ build/
 # Hyperskill task HTML descriptions
 **/*.html
 
-# Gradle wrapper binaries
+# Gradle wrapper binaries (keep gradle-wrapper.properties to pin the version)
 gradlew
 gradlew.bat
-gradle/
+gradle/wrapper/gradle-wrapper.jar
 
 # Claude Code tooling
 .claude/

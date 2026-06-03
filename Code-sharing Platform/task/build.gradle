@@ -6,7 +6,8 @@ buildscript {
     }
     dependencies {
         classpath "org.springframework.boot:spring-boot-gradle-plugin:$hs.spring.bootVersion"
-        classpath "io.spring.gradle:dependency-management-plugin:$hs.spring.dependencyManagementVersion"
+        // 1.1.x required for Gradle 9 compatibility; hs plugin pins an older 1.0.x version
+        classpath "io.spring.gradle:dependency-management-plugin:1.1.6"
     }
 }
 
