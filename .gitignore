@@ -1,0 +1,26 @@
+# Build output
+.gradle/
+build/
+*.class
+
+# IDE
+.idea/
+
+# Hyperskill infrastructure (root only; task/build.gradle is kept)
+/build.gradle
+/settings.gradle
+
+# All YAML / YML metadata and config
+*.yaml
+*.yml
+
+# Hyperskill task HTML descriptions
+**/*.html
+
+# Gradle wrapper binaries
+gradlew
+gradlew.bat
+gradle/
+
+# Claude Code tooling
+.claude/
