@@ -1,26 +1,21 @@
 package platform.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-/** Holds a code snippet and its display title; title is excluded from JSON output to keep the API response minimal. */
+/** Stores one code snippet and the formatted timestamp when it was last saved. */
 public class Code {
 
-    String code;
-
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    String title;
-
+    private String code;
+    private String date;
 
     public Code() {
     }
 
-    /** Creates a snippet with a title for the web view and the raw code for both views. */
-    public Code(String title, String code) {
-        this.title = title;
+    /** Creates a snapshot binding the snippet text to its upload timestamp. */
+    public Code(String code, String date) {
         this.code = code;
+        this.date = date;
     }
 
-    /** Returns the code snippet shared by both the API and web endpoints. */
+    /** Returns the raw code text shared by both the API and HTML endpoints. */
     public String getCode() {
         return code;
     }
@@ -29,12 +24,12 @@ public class Code {
         this.code = code;
     }
 
-    /** Returns the page title used only by the HTML endpoint. */
-    public String getTitle() {
-        return title;
+    /** Returns the upload timestamp string included in both API and HTML responses. */
+    public String getDate() {
+        return date;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setDate(String date) {
+        this.date = date;
     }
 }
